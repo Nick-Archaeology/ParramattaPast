@@ -26,6 +26,10 @@
         var Parra1858 = L.tileLayer('http://mapwarper.net/maps/tile/16009/{z}/{x}/{y}.png ',{
             opacity: 1
         });
+        var NSW_Image = L.tileLayer.wms('http://maps.six.nsw.gov.au/arcgis/services/public/NSW_Imagery/MapServer/WMSServer?',{
+            layers: 'BestImageryDates',
+            attribution: 'Imagery &copy; <a href="http://spatialservices.finance.nsw.gov.au/mapping_and_imagery/lpi_web_services">NSW Government, CC-BY-A</a>'
+        });
         
         var mymap = L.map('mapid', {
             center: [-33.81124,151.003403],
@@ -34,7 +38,8 @@
         });
         
         var baseLayers = {
-            "Mapbox": mapbox
+            "Mapbox": mapbox,
+            "NSW Imagery": NSW_Image
         };
         var overlayMaps = {
             "1880s": Parra1880s,
