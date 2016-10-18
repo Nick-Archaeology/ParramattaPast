@@ -44,7 +44,7 @@
         var mymap = L.map('mapid', {
             center: [-33.81124,151.003403],
             zoom: 14,
-            layers: [mapbox, BlogPlaces]
+            layers: [mapbox, Parra1858, Parra1880s, BlogPlaces]
         });
         
         var baseLayers = {
@@ -52,8 +52,9 @@
             "NSW Imagery": NSW_Image
         };
         var overlayMaps = {
+            "1858": Parra1858,
             "1880s": Parra1880s,
-            "1858": Parra1858
+            "Locations on Tumblr": BlogPlaces
         };
         
         L.control.layers(baseLayers,overlayMaps).addTo(mymap);
