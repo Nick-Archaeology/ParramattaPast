@@ -24,9 +24,12 @@
         });
         
         //Historic maps
-        var Parra1880s = L.tileLayer('http://mapwarper.net/maps/tile/16011/{z}/{x}/{y}.png');
+        var Parra1880s = L.tileLayer('http://mapwarper.net/maps/tile/16011/{z}/{x}/{y}.png',{
+           attribution: 'Higginbotham & Robinson, Atlas of Sydney Suburbs, c.1889-1894, &copy; <a href="http://www.photosau.com.au/cosmaps/scripts/home.asp">City of Sydney</a> (non-commercial use permitted), Georeferenced using <a href="http://mapwarper.net/maps/16011">Map Warper</a>'
+        });
+        
         var Parra1858 = L.tileLayer('http://mapwarper.net/maps/tile/16009/{z}/{x}/{y}.png ',{
-            opacity: 1
+            attribution: 'Map of Extension Parramatta to Penrith Part 1, 1858, <a href="https://www.records.nsw.gov.au/image/map-extension-parramatta-penrith-part-1">SRNSW Digital ID: 15244_a103_a1030000001</a>, Georeferenced using <a href="http://mapwarper.net/maps/16009">Map Warper</a>'
         });
         
         //Aerial Imagery
