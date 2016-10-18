@@ -15,6 +15,7 @@
     <div id="mapid"></div>
     <script>
         
+        //Modern map
         var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/nickpitt/cipujdo6h004abakwjtnzg7dq/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmlja3BpdHQiLCJhIjoiY2lvczV6YWN6MDA2NXR3bTg1aHo2MHFrbiJ9.Q202ChZydvxJnOnlle84IQ', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
@@ -22,19 +23,28 @@
         accessToken: 'pk.eyJ1Ijoibmlja3BpdHQiLCJhIjoiY2lvczV6YWN6MDA2NXR3bTg1aHo2MHFrbiJ9.Q202ChZydvxJnOnlle84IQ'
         });
         
+        //Historic maps
         var Parra1880s = L.tileLayer('http://mapwarper.net/maps/tile/16011/{z}/{x}/{y}.png');
         var Parra1858 = L.tileLayer('http://mapwarper.net/maps/tile/16009/{z}/{x}/{y}.png ',{
             opacity: 1
         });
+        
+        //Aerial Imagery
         var NSW_Image = L.tileLayer.wms('http://maps.six.nsw.gov.au/arcgis/services/public/NSW_Imagery/MapServer/WMSServer?',{
             layers: 'BestImageryDates',
             attribution: 'Imagery &copy; <a href="http://spatialservices.finance.nsw.gov.au/mapping_and_imagery/lpi_web_services">NSW Government, CC-BY-A</a>'
         });
         
+        //Places listed on the blog
+        var OldGovHouse = L.marker([-33.812159, 150.997341]).bindPopup('<a href="http://parramattapast.tumblr.com/post/151921026195/building-of-the-week-old-government-housethis" target="_blank">Old Government House</a>');
+        
+        var BlogPlaces = L.layerGroup([OldGovHouse]);
+        
+        //Leaflet map which ties them all together
         var mymap = L.map('mapid', {
             center: [-33.81124,151.003403],
             zoom: 14,
-            layers: mapbox
+            layers: [mapbox, BlogPlaces]
         });
         
         var baseLayers = {
