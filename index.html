@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Parramatta Past</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="Test_CSS.css">
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+
+</head>
+<body>
+    <div id="mapid"></div>
+    <script>
+        
+        var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/nickpitt/cipujdo6h004abakwjtnzg7dq/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmlja3BpdHQiLCJhIjoiY2lvczV6YWN6MDA2NXR3bTg1aHo2MHFrbiJ9.Q202ChZydvxJnOnlle84IQ', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'nickpitt/cios6117x000oaykop4vni8cx',
+        accessToken: 'pk.eyJ1Ijoibmlja3BpdHQiLCJhIjoiY2lvczV6YWN6MDA2NXR3bTg1aHo2MHFrbiJ9.Q202ChZydvxJnOnlle84IQ'
+        });
+        
+        var Parra1880s = L.tileLayer('http://mapwarper.net/maps/tile/16011/{z}/{x}/{y}.png');
+        var Parra1858 = L.tileLayer('http://mapwarper.net/maps/tile/16009/{z}/{x}/{y}.png ',{
+            opacity: 1
+        });
+        
+        var mymap = L.map('mapid', {
+            center: [-33.81124,151.003403],
+            zoom: 14,
+            layers: mapbox
+        });
+        
+        var baseLayers = {
+            "Mapbox": mapbox
+        };
+        var overlayMaps = {
+            "1880s": Parra1880s,
+            "1858": Parra1858
+        };
+        
+        L.control.layers(baseLayers,overlayMaps).addTo(mymap);
+        //mapbox.addTo(mymap)
+        
+        
+    </script>
+</body>
