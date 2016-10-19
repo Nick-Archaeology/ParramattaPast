@@ -3,17 +3,29 @@
     <title>Parramatta Past</title>
     <link rel="stylesheet" type="text/css" href="leaflet.css" />
     <script src="leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
-    <script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
-    <link rel="stylesheet" type="text/css" href="Test_CSS.css">
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="leaflet.ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 </head>
 <body>
     <div id="mapid"></div>
     <script>
+        //function for showing popups on GeoJSON files
+        function showPopup(feature, layer) {
+            var key, val;
+            var content = [];
+            for (key in feature.properties) {
+                val = feature.properties[key];
+                if (key == 'ITEMNAME') {
+                    content.push("<strong>" + val + "</strong>");
+                }
+                if (key == 'Item_Link') {
+                    content.push('<a href="' + val + '" target="_blank"> Link to State Heritage Listing');
+                }
+            }
+            layer.bindPopup(content.join("<br />"));
+        }
         
         //Modern map
         var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/nickpitt/cipujdo6h004abakwjtnzg7dq/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmlja3BpdHQiLCJhIjoiY2lvczV6YWN6MDA2NXR3bTg1aHo2MHFrbiJ9.Q202ChZydvxJnOnlle84IQ', {
@@ -50,6 +62,14 @@
             layers: [mapbox, Parra1858, Parra1880s, BlogPlaces]
         });
         
+        //Places on NSW State Heritage Register
+        var SHR_Sites = new L.GeoJSON.AJAX("Parra_SHR_polygons.geojson", {
+            onEachFeature: showPopup,
+            color: '#3498db',
+            fillColor: '#85c1e9',
+            attribution: 'NSW State Heritage Register locations, <a href="http://data.nsw.gov.au/data/dataset/65802c9d-7914-4ecb-a37b-da92e179293e">NSW Office of Environment and Heritage</a> CC-BY-A'
+        });
+        
         var baseLayers = {
             "Mapbox": mapbox,
             "NSW Imagery": NSW_Image
@@ -57,11 +77,13 @@
         var overlayMaps = {
             "1858": Parra1858,
             "1880s": Parra1880s,
-            "Locations on Tumblr": BlogPlaces
+            "Locations on Tumblr": BlogPlaces,
+            "State Heritage Register Places": SHR_Sites
         };
         
+        //Control box for switching between layers
         L.control.layers(baseLayers,overlayMaps).addTo(mymap);
-        //mapbox.addTo(mymap)
+
         
         
     </script>
