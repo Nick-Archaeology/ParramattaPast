@@ -53,8 +53,10 @@
         //Places listed on the blog
         var OldGovHouse = L.marker([-33.812159, 150.997341]).bindPopup('<a href="http://parramattapast.tumblr.com/post/151921026195/building-of-the-week-old-government-housethis" target="_blank">Old Government House</a>');
         var PrinceAlfred = L.marker([-33.80981, 151.004701]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152048904915/place-of-the-day-prince-alfred-squareold-gaol" target="_blank">Prince Alfred Park & the Old Gaol</a>');
+        var Gaol = L.marker([-33.798514, 151.000731]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152093070270/place-of-the-day-parramatta-gaol-parramatta" target="_blank">Parramatta Gaol</a>');
+        var ParramattaStadium = L.marker([-33.808214, 150.999873]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152138909030/cumberlandoval" target="_blank">Pirtek Stadium/Cumberland Oval</a>');
         
-        var BlogPlaces = L.layerGroup([OldGovHouse, PrinceAlfred]);
+        var BlogPlaces = L.layerGroup([OldGovHouse, PrinceAlfred, Gaol, ParramattaStadium]);
         
         //Leaflet map which ties them all together
         var mymap = L.map('mapid', {
