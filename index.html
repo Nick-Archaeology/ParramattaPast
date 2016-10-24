@@ -55,8 +55,12 @@
         var PrinceAlfred = L.marker([-33.80981, 151.004701]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152048904915/place-of-the-day-prince-alfred-squareold-gaol" target="_blank">Prince Alfred Park & the Old Gaol</a>');
         var Gaol = L.marker([-33.798514, 151.000731]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152093070270/place-of-the-day-parramatta-gaol-parramatta" target="_blank">Parramatta Gaol</a>');
         var ParramattaStadium = L.marker([-33.808214, 150.999873]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152138909030/cumberlandoval" target="_blank">Pirtek Stadium/Cumberland Oval</a>');
+        var StJohns = L.marker([-33.815969, 151.00277]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">St Johns Anglican Cathedral</a>');
+        var StPats = L.marker([-33.808713, 151.003113]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">St Patricks Catholic Cathedral</a>');
+        var StAndrews = L.marker([-33.814048, 151.002979]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">St Andrews Presbyterian Church (former location)</a>');
+        var Leigh = L.marker([-33.815702, 151.004411]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">Leigh Memorial Uniting Church</a>');
         
-        var BlogPlaces = L.layerGroup([OldGovHouse, PrinceAlfred, Gaol, ParramattaStadium]);
+        var BlogPlaces = L.layerGroup([OldGovHouse, PrinceAlfred, Gaol, ParramattaStadium, StJohns, StPats, StAndrews, Leigh]);
         
         //Leaflet map which ties them all together
         var mymap = L.map('mapid', {
