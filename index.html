@@ -59,8 +59,9 @@
         var StPats = L.marker([-33.808713, 151.003113]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">St Patricks Catholic Cathedral</a>');
         var StAndrews = L.marker([-33.814048, 151.002979]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">St Andrews Presbyterian Church (former location)</a>');
         var Leigh = L.marker([-33.815702, 151.004411]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152229821255/churches" target="_blank">Leigh Memorial Uniting Church</a>');
+        var dairy = L.marker([-33.806644, 150.996759]).bindPopup('<a href="http://parramattapast.tumblr.com/post/152287972910/dairy" target="_blank">Dairy Cottage</a>');
         
-        var BlogPlaces = L.layerGroup([OldGovHouse, PrinceAlfred, Gaol, ParramattaStadium, StJohns, StPats, StAndrews, Leigh]);
+        var BlogPlaces = L.layerGroup([OldGovHouse, PrinceAlfred, Gaol, ParramattaStadium, StJohns, StPats, StAndrews, Leigh, dairy]);
         
         //Leaflet map which ties them all together
         var mymap = L.map('mapid', {
